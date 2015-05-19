@@ -14,6 +14,7 @@ return [
 	|--------------------------------------------------------------------------
 	*/
 	// -- C --
+	'catelog'              => 'Catelog',
 	'confirm'              => 'Confirm',
 	'content'              => 'Content',
 	// -- D --
@@ -28,24 +29,33 @@ return [
 	// -- L --
 	'login'                => 'Login',
 	'logout'               => 'Logout',
+	// -- M --
+	'manage_user'          => 'Manage Users',
 	// -- N --
 	'name'                 => 'Name',
 	'name_colon'           => 'Name:',
 	'new'                  => 'New',
 	'new_category'         => 'New Category',
 	'new_document'         => 'New Document',
+	// -- O --
+	'operation'            => '操作',
 	// -- P --
 	'password'             => 'Password',
 	'publish'              => 'Publish',
 	// -- R --
+	'register'             => 'Register',
 	'remember_me'          => 'Remember Me.',
 	// -- S --
 	'select_category'      => 'Select Category',
 	'slug'                 => 'Slug',
 	'slug_colon'           => 'Slug:',
+	'status'               => 'Status',
 	// -- T --
 	'tags'                 => 'Tags',
 	'title'                => 'Title',
+	'token'                => 'Invite Token',
+	'token_generate'       => 'Generate New Token',
+	'token_unused'         => 'Unused Token',
 	// -- U --
 	'update_it'            => 'Update It',
 	'updated_at'           => 'Last Updated At',

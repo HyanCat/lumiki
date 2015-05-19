@@ -14,6 +14,7 @@ return [
 	|--------------------------------------------------------------------------
 	*/
 	// -- C --
+	'catelog'              => '目录',
 	'confirm'              => '确认',
 	'content'              => '正文',
 	// -- D --
@@ -28,24 +29,33 @@ return [
 	// -- L --
 	'login'                => '登录',
 	'logout'               => '退出',
+	// -- M --
+	'manage_user'          => '管理成员',
 	// -- N --
 	'name'                 => '名称',
 	'name_colon'           => '名称：',
 	'new'                  => '新建',
 	'new_category'         => '新建分类',
 	'new_document'         => '新建文档',
+	// -- O --
+	'operation'            => '操作',
 	// -- P --
 	'password'             => '密码',
 	'publish'              => '发布',
 	// -- R --
+	'register'             => '注册',
 	'remember_me'          => '记住我',
 	// -- S --
 	'select_category'      => '选择分类',
 	'slug'                 => '缩写',
 	'slug_colon'           => '缩写：',
+	'status'               => '状态',
 	// -- T --
 	'tags'                 => '标签',
 	'title'                => '标题',
+	'token'                => '邀请码',
+	'token_generate'       => '生成新的邀请码',
+	'token_unused'         => '未用的邀请码',
 	// -- U --
 	'update_it'            => '更新',
 	'updated_at'           => '最后更新于',

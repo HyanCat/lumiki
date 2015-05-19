@@ -10,12 +10,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\UserToken;
+use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Response;
 
 class AuthController extends Controller
 {
-	protected $auth;
 
 	public function __construct()
 	{
@@ -47,6 +51,65 @@ class AuthController extends Controller
 	public function getLogout()
 	{
 		Auth::logout();
+
+		return redirect()->route('index');
+	}
+
+	public function getRegister()
+	{
+		return view('auth.register');
+	}
+
+	public function postRegister(Request $request)
+	{
+		// register validator
+		$this->validate($request, [
+			'email'    => 'required|email',
+			'name'     => 'required',
+			'password' => 'required',
+			'token'    => 'required',
+		]);
+
+		// check token
+		$token = UserToken::where('token', $request->get('token'))->where('active', false)->whereNull('user_id')->first();
+		if (is_null($token)) {
+			return redirect()->back()->withInput($request->all())->withErrors('Token Check Failed');
+		}
+
+		// create user
+		$input             = $request->except('token');
+		$input['token_id'] = $token->id;
+		try {
+			DB::beginTransaction();
+
+			$existUser = User::withTrashed()->where('email', $input['email'])->first();
+			if (! is_null($existUser)) {
+				if ($existUser->trashed()) {
+					$existUser->restore();
+					$existUser->token_id = $token->id;
+					$existUser->save();
+					$user = $existUser;
+				}
+				else {
+					throw new \Exception('User with email ' . $input['email'] . ' already exist!');
+				}
+			}
+			else {
+				$user = User::create($input);
+			}
+
+			$token->user_id = $user->id;
+			$token->active  = true;
+			$token->save();
+
+			Auth::login($user);
+
+			DB::commit();
+		} catch (\Exception $e) {
+			DB::rollback();
+
+			return redirect()->back()->withInput($request->all())->withErrors('Register Failed');
+		}
 
 		return redirect()->route('index');
 	}

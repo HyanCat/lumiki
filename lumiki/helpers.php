@@ -22,7 +22,6 @@ function L($key)
  * @param $date
  * @return string
  */
-
 function semanticDate($date)
 {
 	$time = strtotime($date);
@@ -55,4 +54,20 @@ function semanticTime($time)
 	}
 
 	return date(L('normal_format'), $time);
+}
+
+/**
+ * Return a formated response.
+ * @param int    $errorCode
+ * @param string $message
+ * @return mixed
+ */
+function ret($errorCode = 0, $message = '')
+{
+	$content = [
+		'error'   => $errorCode,
+		'message' => $message,
+	];
+
+	return new Illuminate\Http\Response(json_encode($content));
 }

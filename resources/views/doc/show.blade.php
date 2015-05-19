@@ -34,7 +34,7 @@
 		<div class="visible content">
 			<i class="icon list layout"></i>
 		</div>
-		<div class="hidden content">目录</div>
+		<div class="hidden content">{{ L('catelog') }}</div>
 	</div>
 
 	<div class="ui breadcrumb">

@@ -56,8 +56,9 @@ $app->middleware([
 ]);
 
 $app->routeMiddleware([
-	'auth'  => 'App\Http\Middleware\AuthMiddleware',
-	'guest' => 'App\Http\Middleware\GuestMiddleware',
+	'auth'    => 'App\Http\Middleware\AuthMiddleware',
+	'guest'   => 'App\Http\Middleware\GuestMiddleware',
+	'founder' => 'App\Http\Middleware\FounderMiddleware',
 ]);
 
 /*

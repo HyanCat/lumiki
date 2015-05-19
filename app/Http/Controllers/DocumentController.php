@@ -32,7 +32,11 @@ class DocumentController extends Controller
 	public function show($id)
 	{
 		$categories     = Category::with('docs')->get();
-		$document       = Document::with('category')->with('user')->findOrFail($id);
+		$document       = Document::with('category')->with([
+			'user' => function ($query) {
+				$query->withTrashed();
+			}
+		])->findOrFail($id);
 		$document->tags = explode(',', $document->tags);
 
 		return view('doc.show', compact('categories', 'document'));

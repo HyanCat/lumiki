@@ -24,4 +24,9 @@ class User extends BaseModel implements AuthenticatableContract, CanResetPasswor
 	protected $date = 'deleted_at';
 
 	protected $guarded = [];
+
+	public function token()
+	{
+		return $this->hasOne('App\Models\UserToken', 'id', 'token_id');
+	}
 }

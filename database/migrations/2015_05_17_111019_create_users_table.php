@@ -21,6 +21,8 @@ class CreateUsersTable extends Migration
 			$table->string('name')->index();
 			$table->string('password');
 			$table->string('remember_token')->nullable();
+			$table->string('token_id')->nullable();
+			$table->boolean('is_founder')->default(false);
 
 			$table->softDeletes();
 			$table->timestamps();
@@ -44,9 +46,10 @@ class CreateUsersTable extends Migration
 	protected function seedBasicData()
 	{
 		\App\Models\User::create([
-			'email'    => env('FOUNDER_EMAIL', 'founder@lumiki.cn'),
-			'name'     => env('FOUNDER_NAME', 'founder'),
-			'password' => Hash::make(env('FOUNDER_PASSWORD', 'Lumiki_Founder')),
+			'email'      => env('FOUNDER_EMAIL', 'founder@lumiki.cn'),
+			'name'       => env('FOUNDER_NAME', 'founder'),
+			'password'   => Hash::make(env('FOUNDER_PASSWORD', 'Lumiki_Founder')),
+			'is_founder' => true,
 		]);
 	}
 

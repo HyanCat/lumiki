@@ -29,6 +29,32 @@ $app->get('logout', [
 	'uses' => 'App\Http\Controllers\AuthController@getLogout',
 	'as'   => 'logout',
 ]);
+$app->get('register', [
+	'uses' => 'App\Http\Controllers\AuthController@getRegister',
+	'as'   => 'register',
+]);
+$app->post('register', [
+	'uses' => 'App\Http\Controllers\AuthController@postRegister',
+	'as'   => 'register.post',
+]);
+
+$app->delete('user/{id:[0-9]+}', [
+	'uses' => 'App\Http\Controllers\UserController@destroy',
+	'as'   => 'user.destroy',
+]);
+$app->get('user/manage', [
+	'uses' => 'App\Http\Controllers\UserController@manage',
+	'as'   => 'user.manage',
+]);
+
+$app->post('token', [
+	'uses' => 'App\Http\Controllers\UserTokenController@store',
+	'as'   => 'token.store'
+]);
+$app->delete('token/{id:[0-9]+}', [
+	'uses' => 'App\Http\Controllers\UserTokenController@destroy',
+	'as'   => 'token.destroy'
+]);
 
 
 // category.
@@ -36,7 +62,6 @@ $app->get('category/create', [
 	'uses' => 'App\Http\Controllers\CategoryController@create',
 	'as'   => 'cate.create',
 ]);
-
 $app->get('category/{slug}', [
 	'uses' => 'App\Http\Controllers\CategoryController@show',
 	'as'   => 'cate',
