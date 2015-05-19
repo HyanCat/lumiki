@@ -41,9 +41,8 @@
 			<i class="user icon"></i>{{ $document->user->name }}
 		</span>
 		<span class="item">
-			<i class="clock icon"></i>{{ $document->created_at }}
+			<i class="clock icon"></i>{{ semanticDate($document->created_at) }}
 		</span>
-
 		@if ($currentUser)
 			<span class="right item">
 				<a href="{{ route('doc.edit', ['id' => $document->id]) }}">
@@ -57,6 +56,19 @@
 		{!! $document->body !!}
 	</div>
 
+	<div class="doc-tags ui menu">
+		<span class="item">
+			<i class="clock icon"></i>{{ L('updated_at') }}{{ semanticDate($document->updated_at) }}
+		</span>
+		<span class="item">
+			<i class="tags icon"></i>
+			@foreach($document->tags as $tag)
+				@unless(empty($tag))
+					<div class="ui label">{{ $tag }}</div>
+				@endunless
+			@endforeach
+		</span>
+	</div>
 @stop
 
 

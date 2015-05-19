@@ -49,5 +49,6 @@ return [
 	|
 	*/
 
-	'private'          => env('APP_PRIVATE', true),
+	'name'            => env('APP_NAME', 'Lumiki'),
+	'private'         => env('APP_PRIVATE', true),
 ];

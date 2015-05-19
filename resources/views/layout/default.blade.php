@@ -16,7 +16,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Lumiki -- @yield('title')</title>
+	<title>{{ config('app.name') }} -- @yield('title')</title>
 
 	@yield('meta')
 
@@ -48,6 +48,7 @@
 	$(document).ready(function(){
 		$('.ui.dropdown').dropdown();
 		$('.ui.checkbox').checkbox();
+		$('[data-content]').popup();
 	});
 </script>
 

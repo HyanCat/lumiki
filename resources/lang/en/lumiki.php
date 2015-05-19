@@ -46,6 +46,7 @@ return [
 	'title'                => 'Title',
 	// -- U --
 	'update_it'            => 'Update It',
+	'updated_at'           => 'Last Updated At',
 	/*
 	|--------------------------------------------------------------------------
 	| Sentences
@@ -53,4 +54,14 @@ return [
 	*/
 	'markdown_lang'        => 'Markdown Language',
 	'seperate_comma_space' => 'seperate with comma or space',
+	/*
+	|--------------------------------------------------------------------------
+	| Data and Time
+	|--------------------------------------------------------------------------
+	*/
+	'seconds_ago'          => 'seconds ago',
+	'minites_ago'          => 'minutes ago',
+	'hours_ago'            => 'hours ago',
+	'days_ago'             => 'days ago',
+	'normal_format'        => 'm/d/Y',
 ];

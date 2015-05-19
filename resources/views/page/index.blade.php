@@ -25,13 +25,16 @@
 
 	@foreach($categories as $category)
 		<h3> {{ $category->name }} </h3>
-		<ul class="doc-list ui segment">
+		<div class="ui list">
 			@foreach($category->docs as $doc)
-				<li class="doc-item">
-					<a href="{{ route('doc.show', ['id' => $doc->id]) }}"> {{ $doc->title }} </a>
-				</li>
+				<div class="item">
+					<i class="text file outline icon"></i>
+					<div class="content">
+						<a href="{{ route('doc.show', ['id' => $doc->id]) }}" class="header"> {{ $doc->title }} </a>
+					</div>
+				</div>
 			@endforeach
-		</ul>
+		</div>
 	@endforeach
 
 @stop

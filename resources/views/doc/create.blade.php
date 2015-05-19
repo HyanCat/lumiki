@@ -23,7 +23,7 @@
 @section('content')
 	<div class="header-section">
 		<h2 class="ui header">
-			<i class="edit icon"></i>
+			<i class="file outline icon"></i>
 			<div class="content">
 				{{ L('new_document') }}
 			</div>

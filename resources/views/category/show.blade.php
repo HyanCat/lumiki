@@ -29,14 +29,17 @@
 		<div class="active section">{{ $category->name }}</div>
 	</div>
 
-	<h2> {{ $category->name }} </h2>
-	<ul class="doc-list">
+	<h3> {{ $category->name }} </h3>
+	<div class="ui list">
 		@foreach($category->docs as $doc)
-			<li class="doc-item">
-				<a href="{{ route('doc.show', ['id' => $doc->id]) }}"> {{ $doc->title }} </a>
-			</li>
+			<div class="item">
+				<i class="text file outline icon"></i>
+				<div class="content">
+					<a href="{{ route('doc.show', ['id' => $doc->id]) }}" class="header"> {{ $doc->title }} </a>
+				</div>
+			</div>
 		@endforeach
-	</ul>
+	</div>
 
 @stop
 
