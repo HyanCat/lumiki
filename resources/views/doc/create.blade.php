@@ -11,21 +11,21 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- New Document
+	{{ L('new_document') }}
 @stop
 
 @section('style')
 
 @stop
 
-@section('navtitle') New Document @stop
+@section('navtitle') {{ L('new_document') }} @stop
 
 @section('content')
 	<div class="header-section">
 		<h2 class="ui header">
 			<i class="edit icon"></i>
 			<div class="content">
-				New Document
+				{{ L('new_document') }}
 			</div>
 		</h2>
 	</div>
@@ -37,7 +37,7 @@
 
 			<div class="ui selection dropdown field">
 				<input type="hidden" name="category_id">
-				<div class="text">Select Category</div>
+				<div class="text"> {{ L('select_category') }} </div>
 				<i class="dropdown icon"></i>
 				<div class="menu">
 					@foreach($categories as $cate)
@@ -47,18 +47,18 @@
 			</div>
 
 			<div class="field">
-				<input type="text" name="title" placeholder="Title">
+				<input type="text" name="title" placeholder="{{ L('title') }}">
 			</div>
 
 			<div class="field">
-				<textarea name="content" placeholder="Content ( Markdown language ) ..."></textarea>
+				<textarea name="content" placeholder="{{ L('content') }} ( {{ L('markdown_lang') }} ) ..."></textarea>
 			</div>
 
 			<div class="field">
-				<input type="text" name="tags" placeholder="Tags ( Seperate with comma or space ) ...">
+				<input type="text" name="tags" placeholder="{{ L('tags') }} ( {{ L('seperate_comma_space') }} ) ...">
 			</div>
 
-			<input type="submit" class="ui green submit button" value="Publish"/>
+			<input type="submit" class="ui green submit button" value="{{ L('publish') }}"/>
 		</form>
 	</div>
 

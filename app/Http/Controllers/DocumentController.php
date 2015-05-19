@@ -21,8 +21,11 @@ class DocumentController extends Controller
 	{
 		parent::__construct();
 
-		if (! config('app.public')) {
+		if (config('app.private')) {
 			$this->middleware('auth');
+		}
+		else {
+			$this->middleware('auth', ['except' => ['show']]);
 		}
 	}
 

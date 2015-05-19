@@ -11,7 +11,7 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- {{ $document->title }}
+	{{ $document->title }}
 @stop
 
 @section('style')
@@ -23,7 +23,7 @@
 
 @section('content')
 	<div class="ui breadcrumb">
-		<a class="section" href="{{ route('index') }}"> Home </a>
+		<a class="section" href="{{ route('index') }}"> {{ L('home') }} </a>
 		<i class="right arrow icon divider"></i>
 		<a class="section" href="{{ route('cate', ['slug' => $document->category->slug]) }}">
 			{{ $document->category->name }}
@@ -44,11 +44,13 @@
 			<i class="clock icon"></i>{{ $document->created_at }}
 		</span>
 
-		<span class="right item">
-			<a href="{{ route('doc.edit', ['id' => $document->id]) }}">
-				<i class="edit icon"></i> Edit
-			</a>
-		</span>
+		@if ($currentUser)
+			<span class="right item">
+				<a href="{{ route('doc.edit', ['id' => $document->id]) }}">
+					<i class="edit icon"></i> {{ L('edit') }}
+				</a>
+			</span>
+		@endif
 	</div>
 
 	<div class="doc-body markdown-body ui segment">

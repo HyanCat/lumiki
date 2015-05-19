@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'lifetime' => env('SESSION_LIFETIME', 0),
+    'lifetime' => env('SESSION_LIFETIME', 120),
 
     'expire_on_close' => env('SESSION_EXPIRE_ON_CLOSE', false),
 
@@ -109,7 +109,7 @@ return [
     |
     */
 
-    'cookie' => 'lumen_session',
+    'cookie' => 'lumiki_session',
 
     /*
     |--------------------------------------------------------------------------
@@ -135,7 +135,7 @@ return [
     |
     */
 
-    'domain' => 'lumiki.app',
+    'domain' => env('APP_DOMAIN', 'lumiki.app'),
 
     /*
     |--------------------------------------------------------------------------

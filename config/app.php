@@ -49,5 +49,5 @@ return [
 	|
 	*/
 
-	'public'          => env('APP_PUBLIC', false),
+	'private'          => env('APP_PRIVATE', true),
 ];

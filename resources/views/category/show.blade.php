@@ -11,7 +11,7 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- {{ $category->name }}
+	{{ $category->name }}
 @stop
 
 @section('style')
@@ -24,7 +24,7 @@
 @section('content')
 
 	<div class="ui breadcrumb">
-		<a class="section" href="{{ route('index') }}"> Home </a>
+		<a class="section" href="{{ route('index') }}"> {{ L('home') }} </a>
 		<i class="right arrow icon divider"></i>
 		<div class="active section">{{ $category->name }}</div>
 	</div>

@@ -12,22 +12,21 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- New Category
+	{{ L('new_category') }}
 @stop
 
 @section('style')
 
 @stop
 
-@section('navtitle') New Category @stop
+@section('navtitle') {{ L('new_category') }} @stop
 
 @section('content')
 	<div class="header-section">
 		<h2 class="ui header">
 			<i class="open folder outline icon"></i>
-
 			<div class="content">
-				New Category
+				{{ L('new_category') }}
 			</div>
 		</h2>
 	</div>
@@ -38,16 +37,16 @@
 		<form action="{{ route('cate.store') }}" method="POST">
 
 			<div class="field">
-				<label>Name:</label>
-				<input type="text" name="name" placeholder="name">
+				<label>{{ L('name_colon') }}</label>
+				<input type="text" name="name" placeholder="{{ L('name') }}">
 			</div>
 
 			<div class="field">
-				<label>Slug:</label>
-				<input type="text" name="slug" placeholder="slug">
+				<label>{{ L('slug_colon') }}</label>
+				<input type="text" name="slug" placeholder="{{ L('slug') }}">
 			</div>
 
-			<input type="submit" class="ui green submit button" value="Confirm"/>
+			<input type="submit" class="ui green submit button" value="{{ L('confirm') }}"/>
 		</form>
 	</div>
 

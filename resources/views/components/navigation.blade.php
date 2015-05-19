@@ -21,15 +21,17 @@
 			@if ($currentUser)
 				<div class="ui teal buttons">
 					<div class="ui pointing dropdown link item">
-						<i class="icon file"></i> New <i class="dropdown icon"></i>
+						<i class="icon file"></i> {{ L('new') }} <i class="dropdown icon"></i>
 						<div class="menu">
-							<a href="{{ route('doc.create') }}" class="item"><i class="edit icon"></i> New Document </a>
-							<a href="{{ route('cate.create') }}" class="item"><i class="open folder outline icon"></i> New Category </a>
+							<a href="{{ route('doc.create') }}" class="item"><i class="edit icon"></i> {{ L('new_document') }} </a>
+							<a href="{{ route('cate.create') }}" class="item"><i class="open folder outline icon"></i> {{ L('new_category') }} </a>
 						</div>
 					</div>
 				</div>
 				<span class="item">{{ $currentUser->name }}</span>
-				<a href="{{ route('logout') }}" class="item"> Logout </a>
+				<a href="{{ route('logout') }}" class="item"> {{ L('logout') }} </a>
+			@else
+				<a href="{{ route('login') }}" class="item"> {{ L('login') }} </a>
 			@endif
 		</div>
 	</div>

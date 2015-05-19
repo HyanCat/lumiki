@@ -11,20 +11,20 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- Login
+	{{ L('login') }}
 @stop
 
 @section('style')
 
 @stop
 
-@section('navtitle') Login @stop
+@section('navtitle') {{ L('login') }} @stop
 
 @section('content')
 	<div class="header-section">
 		<h2 class="ui header center aligned">
 			<div class="content">
-				Login Lumiki
+				{{ L('login') }} Lumiki
 			</div>
 		</h2>
 	</div>
@@ -35,17 +35,17 @@
 		<div class="ui form segment">
 			<form action="{{ route('login.post') }}" method="POST">
 				<div class="field">
-					<label>Email</label>
+					<label>{{ L('email') }}</label>
 					<div class="ui left icon input">
-						<input type="text" name="email" placeholder="Email Address">
+						<input type="text" name="email" placeholder="{{ L('email_address') }}">
 						<i class="user icon"></i>
 					</div>
 				</div>
 
 				<div class="field">
-					<label>Password</label>
+					<label>{{ L('password') }}</label>
 					<div class="ui left icon input">
-						<input type="password" name="password" placeholder="Password">
+						<input type="password" name="password" placeholder="{{ L('password') }}">
 						<i class="lock icon"></i>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 				<div class="inline field">
 					<div class="ui checkbox">
 						<input type="checkbox" name="remember" checked>
-						<label>Remember Me.</label>
+						<label>{{ L('remember_me') }}</label>
 					</div>
 				</div>
 
@@ -61,7 +61,7 @@
 					<div class="header">Login Failed with Error.</div>
 				</div>
 
-				<input type="submit" class="ui green submit button" value="Login"/>
+				<input type="submit" class="ui green submit button" value="{{ L('login') }}"/>
 			</form>
 		</div>
 	</div>

@@ -11,14 +11,14 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- Home
+	{{ L('home') }}
 @stop
 
 @section('style')
 
 @stop
 
-@section('navtitle') Lumiki @stop
+@section('navtitle') @stop
 
 
 @section('content')

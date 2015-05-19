@@ -11,22 +11,21 @@
 @extends('layout.default')
 
 @section('title')
-	Lumiki -- Edit Document
+	{{ L('edit_document') }}
 @stop
 
 @section('style')
 
 @stop
 
-@section('navtitle') Edit Document @stop
+@section('navtitle') {{ L('edit_document') }} @stop
 
 @section('content')
 	<div class="header-section">
 		<h2 class="ui header">
 			<i class="edit icon"></i>
-
 			<div class="content">
-				Edit Document
+				{{ L('edit_document') }}
 			</div>
 		</h2>
 	</div>
@@ -48,18 +47,18 @@
 			</div>
 
 			<div class="field">
-				<input type="text" name="title" placeholder="Title" value="{{ $document->title }}">
+				<input type="text" name="title" placeholder="{{ L('title') }}" value="{{ $document->title }}">
 			</div>
 
 			<div class="field">
-				<textarea name="content" placeholder="Content ( Markdown language ) ...">{{ $document->content }}</textarea>
+				<textarea name="content" placeholder="{{ L('content') }} ( {{ L('markdown_lang') }} ) ...">{{ $document->content }}</textarea>
 			</div>
 
 			<div class="field">
-				<input type="text" name="tags" placeholder="Tags ( Seperate with comma or space ) ..." value="{{ $document->tags }}">
+				<input type="text" name="tags" placeholder="{{ L('tags') }} ( {{ L('seperate_comma_space') }} ) ..." value="{{ $document->tags }}">
 			</div>
 
-			<input type="submit" class="ui green submit button" value="Update It"/>
+			<input type="submit" class="ui green submit button" value="{{ L('update_it') }}"/>
 		</form>
 	</div>
 
