@@ -60,7 +60,7 @@
 		<span class="item">
 			<i class="clock icon"></i>{{ L('updated_at') }}{{ semanticDate($document->updated_at) }}
 		</span>
-		<span class="item">
+		<span> class="item">
 			<i class="tags icon"></i>
 			@foreach($document->tags as $tag)
 				@unless(empty($tag))
@@ -68,6 +68,15 @@
 				@endunless
 			@endforeach
 		</span>
+		@if ($currentUser && $currentUser->id == $document->user_id)
+			<form action="{{ route('doc.destroy', ['id' => $document->id]) }}" method="POST" name="deleteForm" class="right menu">
+				<input type="hidden" name="_method" value="DELETE">
+				<a href="javascript:document.deleteForm.submit();" class="item">
+					<i class="delete icon"></i>
+					{{ L('delete') }}
+				</a>
+			</form>
+		@endif
 	</div>
 @stop
 

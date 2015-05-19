@@ -90,6 +90,22 @@ class DocumentController extends Controller
 
 	public function destroy($id)
 	{
+		try {
+			$document = Document::findOrFail($id);
+			$this->userSelfNeeded($document);
+			$document->delete();
+		} catch (\Exception $e) {
+			return redirect()->back()->withErrors('Delete document failed: ' . $e->getMessage());
+		}
 
+		return redirect()->route('index')->with('notification.message', 'Delete document succeed.');
+	}
+
+	protected function userSelfNeeded($document)
+	{
+		if ($document->user_id == $this->currentUser->id) {
+			return true;
+		}
+		throw new \Exception('Authorize failed');
 	}
 }

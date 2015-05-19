@@ -16,6 +16,8 @@ return [
 	// -- C --
 	'confirm'              => '确认',
 	'content'              => '正文',
+	// -- D --
+	'delete'               => '删除',
 	// -- E --
 	'edit'                 => '编辑',
 	'edit_document'        => '编辑文档',

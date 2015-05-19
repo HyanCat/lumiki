@@ -16,6 +16,8 @@ return [
 	// -- C --
 	'confirm'              => 'Confirm',
 	'content'              => 'Content',
+	// -- D --
+	'delete'               => 'Delete',
 	// -- E --
 	'edit'                 => 'Edit',
 	'edit_document'        => 'Edit Document',
