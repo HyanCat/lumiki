@@ -54,7 +54,7 @@ class DocumentController extends Controller
 		$input            = $request->all();
 		$tags             = preg_split('/[\n\r\t\s\,]+/i', $request->get('tags'));
 		$input['tags']    = implode(',', $tags);
-		$input['body']    = \Parsedown::instance()->setBreaksEnabled(true)->setMarkupEscaped(true)->text($request->get('content'));
+		$input['body']    = \Parsedown::instance()->setBreaksEnabled(true)->setMarkupEscaped(false)->text($request->get('content'));
 		$input['user_id'] = $this->currentUser->id;
 
 		$doc = Document::create($input);
@@ -80,7 +80,7 @@ class DocumentController extends Controller
 
 		$input         = $request->all();
 		$input['tags'] = implode(',', preg_split('/[\n\r\t\s\,]+/i', $request->get('tags')));
-		$input['body'] = \Parsedown::instance()->setBreaksEnabled(true)->setMarkupEscaped(true)->text($request->get('content'));
+		$input['body'] = \Parsedown::instance()->setBreaksEnabled(true)->setMarkupEscaped(false)->text($request->get('content'));
 
 		$doc = Document::find($id)->update($input);
 
