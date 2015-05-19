@@ -8,6 +8,6 @@
  */
 ?>
 
-<div class="footer center aligned">
+<div class="footer center aligned gray">
 	Copyright © 2015 Lumiki. Powered by <a href="">Lumiki</a>.
 </div>

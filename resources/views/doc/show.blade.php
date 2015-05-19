@@ -8,7 +8,7 @@
  */
 ?>
 
-@extends('layout.default')
+@extends('layout.pusher')
 
 @section('title')
 	{{ $document->title }}
@@ -20,8 +20,23 @@
 
 @section('navtitle') {{ $document->title }} @stop
 
+@section('sidebar')
+	@include('components.tree')
+@stop
+
+@section('header')
+	@include('components.navigation')
+@stop
 
 @section('content')
+
+	<div class="ui animated fade button sidebar-trigger">
+		<div class="visible content">
+			<i class="icon list layout"></i>
+		</div>
+		<div class="hidden content">目录</div>
+	</div>
+
 	<div class="ui breadcrumb">
 		<a class="section" href="{{ route('index') }}"> {{ L('home') }} </a>
 		<i class="right arrow icon divider"></i>
@@ -37,18 +52,16 @@
 	</h2>
 
 	<div class="doc-meta ui menu">
-		<span class="item">
+		<span class="item gray">
 			<i class="user icon"></i>{{ $document->user->name }}
 		</span>
-		<span class="item">
+		<span class="item gray">
 			<i class="clock icon"></i>{{ semanticDate($document->created_at) }}
 		</span>
 		@if ($currentUser)
-			<span class="right item">
-				<a href="{{ route('doc.edit', ['id' => $document->id]) }}">
-					<i class="edit icon"></i> {{ L('edit') }}
-				</a>
-			</span>
+			<a href="{{ route('doc.edit', ['id' => $document->id]) }}" class="right item gray">
+				<i class="edit icon"></i> {{ L('edit') }}
+			</a>
 		@endif
 	</div>
 
@@ -57,10 +70,10 @@
 	</div>
 
 	<div class="doc-tags ui menu">
-		<span class="item">
+		<span class="item gray">
 			<i class="clock icon"></i>{{ L('updated_at') }}{{ semanticDate($document->updated_at) }}
 		</span>
-		<span> class="item">
+		<span class="item gray">
 			<i class="tags icon"></i>
 			@foreach($document->tags as $tag)
 				@unless(empty($tag))
@@ -71,7 +84,7 @@
 		@if ($currentUser && $currentUser->id == $document->user_id)
 			<form action="{{ route('doc.destroy', ['id' => $document->id]) }}" method="POST" name="deleteForm" class="right menu">
 				<input type="hidden" name="_method" value="DELETE">
-				<a href="javascript:document.deleteForm.submit();" class="item">
+				<a href="javascript:document.deleteForm.submit();" class="item gray">
 					<i class="delete icon"></i>
 					{{ L('delete') }}
 				</a>
@@ -79,7 +92,6 @@
 		@endif
 	</div>
 @stop
-
 
 @section('script')
 @stop

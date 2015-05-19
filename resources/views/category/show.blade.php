@@ -30,14 +30,14 @@
 	</div>
 
 	<h3> {{ $category->name }} </h3>
-	<div class="ui list">
+	<div class="ui animated selection list">
 		@foreach($category->docs as $doc)
-			<div class="item">
+			<a class="item" href="{{ route('doc.show', ['id' => $doc->id]) }}">
 				<i class="text file outline icon"></i>
 				<div class="content">
-					<a href="{{ route('doc.show', ['id' => $doc->id]) }}" class="header"> {{ $doc->title }} </a>
+					{{ $doc->title }}
 				</div>
-			</div>
+			</a>
 		@endforeach
 	</div>
 
