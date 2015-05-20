@@ -16,6 +16,7 @@
 
 @section('style')
 	<link href="/css/markdown.css" rel="stylesheet"/>
+	<link href="http://cdn.bootcss.com/highlight.js/8.5/styles/tomorrow.min.css" rel="stylesheet"/>
 @stop
 
 @section('navtitle') {{ $document->title }} @stop
@@ -94,4 +95,12 @@
 @stop
 
 @section('script')
+	<script src="http://cdn.bootcss.com/highlight.js/8.5/highlight.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});
+	</script>
 @stop
