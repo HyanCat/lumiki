@@ -12,11 +12,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\UserToken;
-use Illuminate\Http\Exception\HttpResponseException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -77,8 +76,9 @@ class AuthController extends Controller
 		}
 
 		// create user
-		$input             = $request->except('token');
+		$input             = $request->except('token', 'password');
 		$input['token_id'] = $token->id;
+		$input['password'] = Hash::make($request->get('password'));
 		try {
 			DB::beginTransaction();
 
