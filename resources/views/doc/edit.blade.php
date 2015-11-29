@@ -66,7 +66,7 @@
 
 
 @section('script')
-	<script src="http://cdn.bootcss.com/autosize.js/1.18.18/jquery.autosize.min.js" type="text/javascript"></script>
+	<script src="https://cdn.bootcss.com/autosize.js/1.18.18/jquery.autosize.min.js" type="text/javascript"></script>
 	<script>
 		$(document).ready(function(){
 			$('.ui.selection.dropdown').dropdown();
