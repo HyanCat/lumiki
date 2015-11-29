@@ -21,8 +21,8 @@
 	@yield('meta')
 
 
-	<link href="http://cdn.bootcss.com/normalize/3.0.3/normalize.min.css" rel="stylesheet">
-	<link href="http://cdn.bootcss.com/semantic-ui/1.12.2/semantic.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/normalize/3.0.3/normalize.min.css" rel="stylesheet">
+	<link href="https://cdn.bootcss.com/semantic-ui/1.12.2/semantic.min.css" rel="stylesheet">
 	<link href="/css/app.css" rel="stylesheet">
 
 	@yield('style')
@@ -33,8 +33,8 @@
 @yield('body')
 
 
-<script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/semantic-ui/1.12.2/semantic.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/semantic-ui/1.12.2/semantic.min.js"></script>
 
 <script type="text/javascript">
 	$(document).ready(function () {
